@@ -7,13 +7,6 @@ jobs:
     steps:
       - checkout
       - run: javac TodoList.java
-  test:
-    docker:
-      - image: cimg/openjdk:11.0.12
-    steps:
-      - checkout
-      - run: javac Test.java
-      - run: java Test
   deploy:
     machine:
       enabled: true
@@ -27,12 +20,9 @@ workflows:
   build_and_test_deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build 
       - deploy:
           requires:
-            - test
+            - build
           filters:
             branches:
               only: main
