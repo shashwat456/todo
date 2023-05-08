@@ -12,7 +12,7 @@ jobs:
       - image: cimg/openjdk:11.0.12
     steps:
       - checkout
-      - run: javac test.java
+      - run: java test.java
   deploy:
     steps:
       - run:
