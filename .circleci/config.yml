@@ -6,13 +6,13 @@ jobs:
       - image: cimg/openjdk:11.0.12
     steps:
       - checkout
-      - run: python main.java
+      - run: javac main.java
   test:
     docker:
       - image: cimg/openjdk:11.0.12
     steps:
       - checkout
-      - run: python test.java
+      - run: javac test.java
   deploy:
     steps:
       - run:
